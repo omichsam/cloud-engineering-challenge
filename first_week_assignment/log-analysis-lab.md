@@ -12,8 +12,8 @@ Run this script once to create the lab files in `~/loglab/logs/`:
 # =========================================
 # CREATE LOG ANALYSIS LAB
 # =========================================
-mkdir -p ~/loglab/logs
-cd ~/loglab/logs
+mkdir -p loglab/logs
+cd loglab/logs
 
 # Create application log
 cat > app.log <<EOF
@@ -53,11 +53,11 @@ echo "Lab files created successfully"
 
 **Verify the files exist:**
 ```bash
-ls -l ~/loglab/logs/
+ls -l loglab/logs/
 # app.log  auth.log  system.log
 ```
 
-![Setup Screenshot](images/setup.png)
+![Setup Screenshot](images/pic_0.png)
 
 ---
 
@@ -67,7 +67,7 @@ ls -l ~/loglab/logs/
 
 **Command:**
 ```bash
-find ~/loglab -name "*.log"
+find loglab -name "*.log"
 ```
 
 **Expected output:**
@@ -77,7 +77,7 @@ find ~/loglab -name "*.log"
 /home/<user>/loglab/logs/system.log
 ```
 
-![Task 1 Screenshot](images/task-01.png)
+![Task 1 Screenshot](images/pic_1.png)
 
 ---
 
@@ -93,7 +93,7 @@ find ~/loglab -name "*app*"
 /home/<user>/loglab/logs/app.log
 ```
 
-![Task 2 Screenshot](images/task-02.png)
+![Task 2 Screenshot](images/pic_3.png)
 
 ---
 
@@ -117,7 +117,7 @@ locate auth.log
 > locate auth.log
 > ```
 
-![Task 3 Screenshot](images/task-03.png)
+![Task 3 Screenshot](images/pic_4.png)
 
 ---
 
@@ -127,7 +127,7 @@ locate auth.log
 
 **Command:**
 ```bash
-grep "ERROR" ~/loglab/logs/app.log
+grep "ERROR" loglab/logs/app.log
 ```
 
 **Expected output:**
@@ -138,7 +138,7 @@ grep "ERROR" ~/loglab/logs/app.log
 2026-05-12 08:40:18 ERROR Disk write failure
 ```
 
-![Task 4 Screenshot](images/task-04.png)
+![Task 4 Screenshot](images/pic_5.png)
 
 ---
 
@@ -146,7 +146,7 @@ grep "ERROR" ~/loglab/logs/app.log
 
 **Command:**
 ```bash
-grep "WARNING" ~/loglab/logs/app.log
+grep "WARNING" loglab/logs/app.log
 ```
 
 **Expected output:**
@@ -155,7 +155,7 @@ grep "WARNING" ~/loglab/logs/app.log
 2026-05-12 08:30:55 WARNING High memory usage detected
 ```
 
-![Task 5 Screenshot](images/task-05.png)
+![Task 5 Screenshot](images/pic_6.png)
 
 ---
 
@@ -163,14 +163,14 @@ grep "WARNING" ~/loglab/logs/app.log
 
 **Command:**
 ```bash
-grep "ERROR" ~/loglab/logs/app.log | wc -l
+grep "ERROR" loglab/logs/app.log | wc -l
 # 4
 
 # Equivalent shortcut
-grep -c "ERROR" ~/loglab/logs/app.log
+grep -c "ERROR" loglab/logs/app.log
 ```
 
-![Task 6 Screenshot](images/task-06.png)
+![Task 6 Screenshot](images/pic_7.png)
 
 ---
 
@@ -182,7 +182,7 @@ The timestamp is the first two fields (date + time).
 
 **Command:**
 ```bash
-awk '{print $1, $2}' ~/loglab/logs/app.log
+awk '{print $1, $2}' loglab/logs/app.log
 ```
 
 **Expected output:**
@@ -193,7 +193,8 @@ awk '{print $1, $2}' ~/loglab/logs/app.log
 ...
 ```
 
-![Task 7 Screenshot](images/task-07.png)
+![Task 7 Screenshot](images/pic_8.png)
+
 
 ---
 
@@ -203,7 +204,7 @@ Successful logins are lines containing `Accepted password for <user>`. The usern
 
 **Command:**
 ```bash
-grep "Accepted" ~/loglab/logs/auth.log | awk '{print $NF}'
+grep "Accepted" loglab/logs/auth.log | awk '{print $NF}'
 ```
 
 **Expected output:**
@@ -212,7 +213,7 @@ ubuntu
 devops
 ```
 
-![Task 8 Screenshot](images/task-08.png)
+![Task 8 Screenshot](images/pic_9.png) 
 
 ---
 
@@ -222,7 +223,7 @@ The relevant lines start with `Disk usage:` — the percentage is the third fiel
 
 **Command:**
 ```bash
-grep "Disk usage" ~/loglab/logs/system.log | awk '{print $3}'
+grep "Disk usage" loglab/logs/system.log | awk '{print $3}'
 ```
 
 **Expected output:**
@@ -231,7 +232,7 @@ grep "Disk usage" ~/loglab/logs/system.log | awk '{print $3}'
 95%
 ```
 
-![Task 9 Screenshot](images/task-09.png)
+![Task 9 Screenshot](images/pic_10.png)
 
 ---
 
@@ -241,13 +242,13 @@ grep "Disk usage" ~/loglab/logs/system.log | awk '{print $3}'
 
 **Command:**
 ```bash
-grep "ERROR" ~/loglab/logs/app.log | wc -l
+grep "ERROR" loglab/logs/app.log | wc -l
 # 4
 ```
 
 **Flow:** `grep` → `wc -l`
 
-![Task 10 Screenshot](images/task-10.png)
+![Task 10 Screenshot](images/pic_11.png)
 
 ---
 
@@ -255,7 +256,7 @@ grep "ERROR" ~/loglab/logs/app.log | wc -l
 
 **Command:**
 ```bash
-grep "Accepted\|Failed" ~/loglab/logs/auth.log | awk '{print $NF}' | sort
+grep "Accepted\|Failed" loglab/logs/auth.log | awk '{print $NF}' | sort
 ```
 
 **Expected output:**
@@ -269,7 +270,7 @@ ubuntu
 
 **Flow:** `grep` → `awk` → `sort`
 
-![Task 11 Screenshot](images/task-11.png)
+![Task 11 Screenshot](images/pic_12.png)
 
 ---
 
@@ -277,7 +278,7 @@ ubuntu
 
 **Command:**
 ```bash
-grep "Failed" ~/loglab/logs/auth.log | awk '{print $NF}' | sort | uniq -c
+grep "Failed" loglab/logs/auth.log | awk '{print $NF}' | sort | uniq -c
 ```
 
 **Expected output:**
@@ -289,7 +290,7 @@ grep "Failed" ~/loglab/logs/auth.log | awk '{print $NF}' | sort | uniq -c
 
 **Flow:** `grep` → `awk` → `sort` → `uniq -c`
 
-![Task 12 Screenshot](images/task-12.png)
+![Task 12 Screenshot](images/pic_13.png)
 
 ---
 
@@ -309,7 +310,7 @@ EOF
 cat loglist.txt
 ```
 
-![Task 13 Screenshot](images/task-13.png)
+![Task 13 Screenshot](images/pic_14.png)
 
 ---
 
@@ -322,7 +323,7 @@ cat loglist.txt | xargs cat
 
 > This reads each filename from `loglist.txt` and passes them as arguments to `cat`, which then prints the contents of every file in sequence.
 
-![Task 14 Screenshot](images/task-14.png)
+![Task 14 Screenshot](images/pic_15.png)
 
 ---
 
@@ -341,7 +342,7 @@ app.log:2026-05-12 08:25:41 ERROR API timeout from server1
 app.log:2026-05-12 08:40:18 ERROR Disk write failure
 ```
 
-![Task 15 Screenshot](images/task-15.png)
+![Task 15 Screenshot](images/pic_16.png)
 
 ---
 
@@ -352,10 +353,10 @@ app.log:2026-05-12 08:40:18 ERROR Disk write failure
 ### Step 1 — Identify the disk issue
 
 ```bash
-grep -i "disk" ~/loglab/logs/app.log ~/loglab/logs/system.log
+grep -i "disk" loglab/logs/app.log loglab/logs/system.log
 ```
 
-![Advanced 1 Screenshot](images/adv-01.png)
+![Advanced 1 Screenshot](images/pic_17.png)
 
 ---
 
@@ -365,7 +366,7 @@ grep -i "disk" ~/loglab/logs/app.log ~/loglab/logs/system.log
 grep "Failed" ~/loglab/logs/auth.log | awk '{print $NF}' | sort | uniq -c
 ```
 
-![Advanced 2 Screenshot](images/adv-02.png)
+![Advanced 2 Screenshot](images/pic_18.png)
 
 ---
 
@@ -375,7 +376,7 @@ grep "Failed" ~/loglab/logs/auth.log | awk '{print $NF}' | sort | uniq -c
 grep -c "ERROR" ~/loglab/logs/app.log
 ```
 
-![Advanced 3 Screenshot](images/adv-03.png)
+![Advanced 3 Screenshot](images/pic_19.png)
 
 ---
 
@@ -388,7 +389,8 @@ locate loglab
 find ~ -name "*.log" 2>/dev/null
 ```
 
-![Advanced 4 Screenshot](images/adv-04.png)
+![Advanced 4 Screenshot](images/pic_20.png)
+![Advanced 4 Screenshot](images/pic_2020.png)
 
 ---
 
@@ -413,7 +415,7 @@ echo "Successful logins:"
 grep -c "Accepted" ~/loglab/logs/auth.log
 ```
 
-![Advanced 5 Screenshot](images/adv-05.png)
+![Advanced 5 Screenshot](images/pic_21.png)
 
 ---
 
