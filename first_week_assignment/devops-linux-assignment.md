@@ -343,7 +343,7 @@ ss -tulnp | grep :22
 
 ![Task 16 Screenshot](images/task-16.png)
 
-<!-- ---
+---
 
 ## PART 6 — SSH & SCP
 
@@ -472,7 +472,7 @@ ls ~/Desktop/restore
 - `f` — filename
 - `-C` — change to this directory before extracting
 
-![Task 23 Screenshot](images/task-23.png) -->
+![Task 23 Screenshot](images/task-23.png)
 
 ---
 
