@@ -1,3 +1,0 @@
-alice	alice@example.com
-bob	bob@example.com
-# this line is ignored
