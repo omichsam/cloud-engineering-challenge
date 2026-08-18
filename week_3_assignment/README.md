@@ -1,5 +1,9 @@
 # Real-World DevOps Labs & Challenges
 
+## Week summary
+
+This week turns Linux and Git fundamentals into reusable Bash operations tooling. The six scripts cover recovery, deployment rollback, monitoring, interactive operations, user onboarding, and EC2 provisioning. Review each script's configuration block before running it on a real host.
+
 A collection of six production-style **bash automation scripts** covering server
 recovery, deployment, monitoring, and infrastructure setup. Every script is
 commented, passes `bash -n` syntax checks, and has a `CONFIG` block at the top
