@@ -1,0 +1,1 @@
+{"family":"task-tracker","networkMode":"awsvpc","requiresCompatibilities":["FARGATE"],"cpu":"256","memory":"512","executionRoleArn":"YOUR_ECS_EXECUTION_ROLE_ARN","containerDefinitions":[{"name":"task-tracker","image":"YOUR_ACCOUNT_ID.dkr.ecr.YOUR_REGION.amazonaws.com/task-tracker:latest","essential":true,"portMappings":[{"containerPort":80}]}]}
