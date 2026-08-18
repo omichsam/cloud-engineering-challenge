@@ -36,3 +36,9 @@ The first assignment covered the essential foundations of cloud engineering:
 --- -->
 
 **Repository:** [github.com/omichsam/cloud-engineering-challenge](https://github.com/omichsam/cloud-engineering-challenge)
+
+---
+
+## Week 4 – Docker Containerization
+
+[View the Flask + Redis URL Shortener assignment](./week_4_assignment/url-shortener/README.md)
