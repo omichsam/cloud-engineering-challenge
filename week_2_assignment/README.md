@@ -1,5 +1,9 @@
 # Git Collaboration & Workflow Practice
 
+## Week summary
+
+This week practices the full Git collaboration lifecycle: feature branches, merges, conflict resolution, rebasing, stashing, hotfixes, multiple remotes, annotated tags, and safe recovery. The walkthroughs are designed to be replayed in a disposable repository.
+
 Hands-on Git labs and scenario-based study material completed as part of the NextGen DevOps program, week 2. Covers everyday collaboration workflows (branching, merging, conflicts) through to advanced/production-grade Git practices (rebase, hotfixes, multiple remotes, tagging, and recovery).
 
 ---
