@@ -1,0 +1,13 @@
+const express=require('express'); const mongoose=require('mongoose');
+const app=express(); app.use(express.json());
+const host=process.env.MONGO_HOST||'mongodb', db=process.env.MONGO_DATABASE||'attendance_db';
+const Student=mongoose.model('Student',{name:{type:String,required:true},email:String});
+const Attendance=mongoose.model('Attendance',{studentId:mongoose.Schema.Types.ObjectId,date:{type:Date,default:Date.now},present:Boolean});
+app.get('/api/students',async(_,r)=>r.json(await Student.find()));
+app.post('/api/students',async(req,r)=>r.status(201).json(await Student.create(req.body)));
+app.post('/api/attendance',async(req,r)=>r.status(201).json(await Attendance.create(req.body)));
+app.get('/api/attendance',async(_,r)=>r.json(await Attendance.find()));
+app.get('/api/students/:id/attendance',async(req,r)=>r.json(await Attendance.find({studentId:req.params.id})));
+app.get('/',(_,r)=>r.send('<h1>Student Attendance</h1><p>Use the JSON API under /api.</p>'));
+mongoose.connect(`mongodb://${host}:${process.env.MONGO_PORT||27017}/${db}`).then(()=>app.listen(3000,'0.0.0.0')).catch(e=>{console.error(e);process.exit(1)});
+module.exports=app;
