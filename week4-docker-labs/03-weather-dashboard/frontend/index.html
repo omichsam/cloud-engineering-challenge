@@ -1,0 +1,1 @@
+<!doctype html><h1>Weather Dashboard</h1><input id="city" value="Nairobi"><button onclick="go()">Search</button><pre id="out"></pre><script>async function go(){let c=city.value;let r=await fetch('http://localhost:5001/api/weather?city='+encodeURIComponent(c));out.textContent=JSON.stringify(await r.json(),null,2)}</script>
