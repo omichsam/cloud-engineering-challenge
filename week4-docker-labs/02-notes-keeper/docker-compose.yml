@@ -1,0 +1,7 @@
+services:
+  flask-app:
+    build: .
+    ports: ["5000:5000"]
+    volumes: [notes-data:/data]
+volumes:
+  notes-data:
