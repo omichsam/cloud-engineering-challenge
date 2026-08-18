@@ -1,5 +1,9 @@
 # Week 6 — AWS Container Deployment
 
+## Week summary
+
+This week applies Docker and networking concepts to AWS. The supplied Task Tracker image is documented for both a self-managed EC2 + MySQL deployment and a managed ECS Fargate + RDS deployment. AWS execution, screenshots, endpoints, and costs must be verified by the student and are not fabricated here.
+
 This project documents deploying the provided `omarionya/task-tracker:latest` image in two architectures. Its internal source and environment contract were not supplied, so `DB_HOST`, `DB_PORT`, `DB_DATABASE`, `DB_USERNAME`, and `DB_PASSWORD` are documented assumptions to verify against the image owner.
 
 ## Architecture
