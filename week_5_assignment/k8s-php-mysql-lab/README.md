@@ -1,5 +1,9 @@
 # Kubernetes Lab 1 — PHP Student Registration
 
+## Week summary
+
+This week moves from Docker containers to Kubernetes orchestration on Minikube. The project includes a PHP registration/login application and manifests demonstrating service discovery, health probes, ConfigMaps, Secrets, MySQL persistence, scaling, and self-healing.
+
 ## Objective
 Deploy a PHP 8.2 Apache student registration system with MySQL 8 and phpMyAdmin on Minikube. The lab demonstrates Pods, Deployments, ReplicaSets, Services, ConfigMaps, Secrets, PVCs, service discovery, scaling, and self-healing.
 
