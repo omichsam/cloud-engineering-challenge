@@ -1,4 +1,8 @@
 # Week 4 Docker Containerization Labs
+
+## Week summary
+
+Six independently runnable applications demonstrate Dockerfiles, images, containers, Compose services, private networking, environment variables, port mappings, logs, tests, and persistent volumes. Start in one lab directory so its ports and volumes remain isolated from the others.
 | Lab | Application | Technology | Containers |
 |---|---|---|---|
 | 1 | Student Attendance | Node.js + MongoDB | node-app, mongodb |
