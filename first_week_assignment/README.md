@@ -1,5 +1,9 @@
 # DevOps Practice — Linux Fundamentals
 
+## Week summary
+
+This week establishes the command-line foundation used by the later Docker, Kubernetes, and AWS projects. It covers file operations, permissions, processes, networking, SSH/SCP, logs, and a practical DevOps project walkthrough. Evidence images are stored in `images/`.
+
 A collection of Linux exercises and hands-on labs completed as part of DevOps practice. Each markdown file documents the tasks, the commands used, and screenshots of the actual output from a Linux VM.
 
 ---
