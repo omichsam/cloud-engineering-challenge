@@ -1,0 +1,37 @@
+services:
+  flask-app:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      REDIS_HOST: ${REDIS_HOST:-redis}
+      REDIS_PORT: ${REDIS_PORT:-6379}
+      FLASK_ENV: ${FLASK_ENV:-production}
+    depends_on:
+      redis:
+        condition: service_healthy
+    networks:
+      - url-shortener-network
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    command: redis-server --appendonly yes
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    networks:
+      - url-shortener-network
+    restart: unless-stopped
+
+networks:
+  url-shortener-network:
+    driver: bridge
+
+volumes:
+  redis-data:
+
